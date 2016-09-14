@@ -40,11 +40,11 @@ public interface ExtendedJBossXATerminator extends JBossXATerminator {
 	 *            The timeout associated with the global transaction if one was created.
 	 *
 	 * @return
-	 *            A transaction object corresponding to the Xid or null if there is no such transaction
+	 *            A wrapper containing the transaction object corresponding to the Xid or null if there is no such transaction
 	 *
 	 * @throws XAException with code XA_RBROLLBACK if the transaction has already aborted
 	 */
-	Transaction getOrImportTransaction(Xid xid, int timeoutIfNew) throws XAException;
+	TransactionImportResult importTransaction(Xid xid, int timeoutIfNew) throws XAException;
 
 	/**
 	 * Convert an imported Xid into a Transaction object.
